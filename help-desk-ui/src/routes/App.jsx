@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import Signup from './SignUp'
 import '../App.css'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   
 
   return (
     <> 
-    {/* <h1>body</h1> */}
-    <Signup></Signup>
-      
+    <Outlet></Outlet>
     </>
   )
 }
