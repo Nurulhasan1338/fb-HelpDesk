@@ -1,0 +1,20 @@
+.signUpBox{
+    padding: 11px 40px;
+    border-radius: 13px !important;
+    width: 380px;
+
+}
+.css-j204z7-MuiFormControlLabel-root .MuiFormControlLabel-label {
+    font-size: small;
+}
+
+.fontSize{
+    font-size: 12px;
+}
+.fontSize a{
+    text-decoration: none;
+}
+.fontSize p{
+    margin-bottom: 0;
+    margin-top: 12px;
+}
