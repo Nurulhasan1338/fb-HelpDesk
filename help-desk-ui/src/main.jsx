@@ -11,29 +11,32 @@ import {
 } from "react-router-dom";
 
 
+// const location = useLocation();
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    children:[
+    children: [
       {
         path: "/signin",
-        element: <SignIn/>,
+        element: <SignIn />,
       },
       {
         path: "/",
-        element: <SignUp/>,
+        element: <SignUp />,
       },
       {
         path: "/pageIntegrate",
-        element: <PageIntegration/>,
+        element: <PageIntegration />,
       }
     ]
   },
 ]);
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
+
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router}/>
   </React.StrictMode>,
 )
