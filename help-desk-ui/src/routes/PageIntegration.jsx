@@ -11,8 +11,6 @@ const PageIntegration = () => {
     const nevigate = useNavigate();
 
 
-    
-
 
     const logout = ()=>{
        localStorage.setItem("auth-token","");

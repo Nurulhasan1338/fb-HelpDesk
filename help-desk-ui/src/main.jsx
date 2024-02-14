@@ -4,6 +4,7 @@ import SignUp from './routes/SignUp'
 import App from './routes/App'
 import SignIn from './routes/SignIn'
 import PageIntegration from './routes/PageIntegration'
+import Dashboard from "./component/helpDeskDashboard"
 import './index.css'
 import {
   createBrowserRouter,
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <SignUp />,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard/>,
       },
       {
         path: "/pageIntegrate",

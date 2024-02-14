@@ -1,0 +1,55 @@
+.Icon{
+    
+    font-size: 30px;
+    background-color: #1e4e91;
+    color: #e3e5e8;
+    opacity: 1;
+    transition: background-color 0.3s ease;
+}
+.rm-bt{
+    text-decoration: none;
+    border: none;
+}
+.boxClient:focus{
+    background-color: #e3e5e8;
+}
+.title{
+    font-family: sans-serif;
+    padding-left: 15px;
+    padding-top: 4px;
+}
+
+.cliendProfile{
+    background-color: #e3e5e8;
+}
+.clientName{
+    font-size:small;
+    font-weight: 700;
+}
+.client-type{
+    font-size:smaller;
+}
+.smallText{
+    font-size: small;
+    font-family:system-ui;
+}
+p{
+    margin-bottom: 0;
+}
+#setSize{
+    position: relative;
+    top: 2px;
+    font-size :large;
+}
+
+.Icon:hover{
+    color: #1e4e91;
+    background-color: #e3e5e8;
+    
+}
+
+
+.Icon:focus{
+    color: #1e4e91;
+    background-color: #e3e5e8;
+}
