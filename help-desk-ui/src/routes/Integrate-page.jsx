@@ -8,7 +8,8 @@ const Integratedpage = (props) => {
   }
   return (
     <div>
-    <label>Integrated Page :</label> <strong>what is in the name</strong>
+    <label>Integrated Page :</label> <strong>{props.page.name}</strong>
+    <label>Integrated Page id :</label> <strong>{props.page.id}</strong>
     <Button variant="solid" color="danger" onClick={DeleteConnection} className="w-100 my-2">Delete Integration </Button>
     <Button variant="solid" color="primary" className="w-100 my-1">Reply to Messages</Button>
     </div>

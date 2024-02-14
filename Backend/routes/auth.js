@@ -6,10 +6,13 @@ const router = express.Router();
 const User = require("../module/User");
 require('dotenv').config();
 const bycrypt = require("bcrypt");
+const fetch = require('node-fetch');
+
 
 // for JWT authetication
 var jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET_for_ACCESS_TOKEN = process.env.JWT_SECRET_for_ACCESS_TOKEN;
 
 // route 1 for creating user
 
@@ -108,6 +111,36 @@ router.post(
     }
   }
 );
+
+
+router.post('/facebook', async (req, res) => {
+  const { accessToken } = req.body;
+
+  try {
+    const response = await fetch(`https://graph.facebook.com/debug_token?input_token=${accessToken}&access_token=${FACEBOOK_APP_ID}|${FACEBOOK_APP_SECRET}`);
+    const data = await response.json();
+    if (data.data.is_valid) {
+      // Token is valid, create user session
+      const userData = await fetch(`https://graph.facebook.com/me?fields=id,name,email&access_token=${accessToken}`);
+      const userDataJson = await userData.json();
+      const gen_token = {
+        user: {
+          id: userDataJson.id,
+          name:userDataJson.name,
+          email:userDataJson.email,
+          accessToken: accessToken
+        },
+      };
+      const auth_token = jwt.sign(gen_token, JWT_SECRET_for_ACCESS_TOKEN);
+      res.status(200).json({"auth-token":auth_token});
+    } else {
+      res.status(401).json({ error: 'Invalid token' });
+    }
+  } catch (error) {
+    console.error('Error during Facebook authentication:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 
 router.post("/getuser", fetchuser, async (req, res) => {

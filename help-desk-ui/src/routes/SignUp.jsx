@@ -79,7 +79,7 @@ const Signup = () => {
 
     return (
         <div className='d-flex justify-content-center align-items-center vh-100 '>
-            <Paper elevation={3} className='signUpBox'>
+            <Paper elevation={3} className='Box'>
                 <h5 className='text-center my-4'>Create Account</h5>
                 <form onSubmit={handleSubmit}>
                     <FormControl className="my-2">
