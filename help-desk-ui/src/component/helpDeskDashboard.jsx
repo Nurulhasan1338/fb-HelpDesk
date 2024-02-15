@@ -6,6 +6,7 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 import { TbBrandUbuntu } from "react-icons/tb";
 import ConversationBox from "./ConversationBox";
 import ClientDetails from "./ClientDetails"
+import ChatBox from "./ChatBox"
 
 import Profile from "./Profile"
 import "./comp.css"
@@ -32,7 +33,7 @@ const helpDeskDashboard = () => {
         <ConversationBox></ConversationBox>
       </Grid>
       <Grid xs={5.4} className="bg-danger">
-      
+      <ChatBox/>
       </Grid>
       <Grid xs={3} className="cliendProfile">
         <ClientDetails/>

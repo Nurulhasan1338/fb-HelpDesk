@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import SignUp from './routes/SignUp'
 import App from './routes/App'
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import SignIn from './routes/SignIn'
 import PageIntegration from './routes/PageIntegration'
 import Dashboard from "./component/helpDeskDashboard"

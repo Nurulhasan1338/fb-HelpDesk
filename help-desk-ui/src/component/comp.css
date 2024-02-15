@@ -1,10 +1,29 @@
-.Icon{
-    
+.Icon{   
     font-size: 30px;
     background-color: #1e4e91;
     color: #e3e5e8;
     opacity: 1;
     transition: background-color 0.3s ease;
+}
+
+.outerBox{
+ 
+    padding: 2px 3px;
+}
+
+.footerBox{
+    
+    padding: 6px;
+    border: 1.5px solid;
+    border-radius: 9px !important;
+    margin: 14px 6px;
+
+}
+
+.card-body {
+  
+    height: 75vh;
+    overflow-y: scroll;
 }
 .rm-bt{
     text-decoration: none;
@@ -31,7 +50,7 @@
 }
 .smallText{
     font-size: small;
-    font-family:system-ui;
+    font-family:sans-serif;
 }
 p{
     margin-bottom: 0;
@@ -47,9 +66,30 @@ p{
     background-color: #e3e5e8;
     
 }
+.small{
+    font-size: 13px;
+}
 
 
 .Icon:focus{
     color: #1e4e91;
     background-color: #e3e5e8;
 }
+
+
+#chat2 .form-control {
+    border-color: transparent;
+  }
+  
+  #chat2 .form-control:focus {
+    border-color: transparent;
+    box-shadow: inset 0px 0px 0px 1px transparent;
+  }
+  
+  .divider:after,
+  .divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+  }

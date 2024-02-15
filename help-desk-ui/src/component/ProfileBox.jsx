@@ -24,7 +24,7 @@ export default function BioCard() {
     
         <Typography level="title-lg">Josephine Blanton</Typography>
         <Typography level="body-sm" sx={{ maxWidth: '24ch' }}>
-          <span className='text-success'><GoDotFill/></span> Offline
+          <span className='text-success'><GoDotFill/></span> Online
         </Typography>
         
       </CardContent>

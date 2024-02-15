@@ -7,6 +7,36 @@
 body {
 
   background-color: #1e4e91;
+  
+  font-family: Roboto, Helvetica, Arial, sans-serif;
 
 }
 
+
+
+::-webkit-scrollbar {
+  width: 4px; /* width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* color of the thumb */
+  border-radius: 2px; /* roundness of the thumb */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* color of the track */
+}
+
+/* For Firefox */
+::-moz-scrollbar {
+  width: 10px;
+}
+
+::-moz-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-moz-scrollbar-track {
+  background: #f1f1f1;
+}
