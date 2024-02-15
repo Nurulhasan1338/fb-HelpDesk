@@ -15,7 +15,7 @@ const Client = () => {
                 <input className="form-check-input " type="checkbox" value="" id="flexCheckDefault"/>
                 </div>
                 <div className='text-start'> 
-                <p className="clientName" for="flexCheckDefault"> Nurul Hasan</p>
+                <p className="clientName" htmlFor="flexCheckDefault"> Nurul Hasan</p>
                 <p className='client-type text-muted'>Facebook DM</p>
                 </div>
             </div>

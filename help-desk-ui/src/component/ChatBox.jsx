@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import "./comp.css";
 import {
   MDBContainer,
@@ -12,9 +12,49 @@ import {
 } from "mdb-react-ui-kit";
 import Avatar from '@mui/joy/Avatar';
 import ProfilePic from "../assets/profile.png"
+import MessageBox from "./Message";
 
 
-export default function App() {
+export default function ChatBox() {
+
+    const [msg,setMsg] = useState([]);
+
+    const messages = [
+        {
+          messageContent: ["Hello there!"],
+          profilePhoto: ProfilePic,
+          sender: true,
+          time: "2024-03-03T15:33:00"
+        },
+        {
+          messageContent: ["Hi!", "How are you?"],
+          profilePhoto: ProfilePic,
+          sender: false,
+          time: "2024-03-03T15:34:00"
+        },
+        {
+          messageContent : ["I'm doing great", "thanks!"],
+          profilePhoto : ProfilePic,
+          sender : true,
+          time : "2024-03-03T15:35:00"
+        },
+        {
+          messageContent : ["That's good to hear!"],
+          profilePhoto : ProfilePic,
+          sender : false,
+          time : "2024-03-03T15:36:00"
+        }
+      ];
+      
+      
+
+      useEffect(()=>{
+          setMsg(messages);
+      },[])
+      
+     
+      
+      
   return (
     <MDBContainer className="outerBox" style={{ backgroundColor: "#eee" }}>
       <MDBRow className="d-flex justify-content-center">
@@ -24,34 +64,14 @@ export default function App() {
               <h5 className="mb-0">Nurul Hasan</h5>
             </MDBCardHeader>
          
-              <MDBCardBody>
-                <div className="d-flex flex-row justify-content-start">
-                <Avatar alt="Nurul Hasan" src={ProfilePic} />
-                 
-                  <div>
-                    <p
-                      className="small p-2 ms-3 mb-1 rounded-3"
-                      style={{ backgroundColor: "#f5f6f7" }}
-                    >
-                      Hi
-                    </p>
-                    <p
-                      className="small p-2 ms-3 mb-1 rounded-3"
-                      style={{ backgroundColor: "#f5f6f7" }}
-                    >
-                      How are you ...???
-                    </p>
-                    <p
-                      className="small p-2 ms-3 mb-1 rounded-3"
-                      style={{ backgroundColor: "#f5f6f7" }}
-                    >
-                      What are you doing tomorrow? Can we come up a bar?
-                    </p>
-                    <p className="small ms-3 mb-3 rounded-3 text-muted">
-                      23:58
-                    </p>
-                  </div>
-                </div>
+              <MDBCardBody className="messageBody">
+                {
+                    msg.map((message,index)=>{
+                        return (
+                            <MessageBox key = {index} msg = {message}/>
+                        )
+                    })
+                }
 
                 <div className="divider d-flex align-items-center mb-4">
                   <p
@@ -62,31 +82,13 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="d-flex flex-row justify-content-end mb-4 pt-1">
-                  <div>
-                    <p className="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">
-                      Hiii, I'm good.
-                    </p>
-                    <p className="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">
-                      How are you doing?
-                    </p>
-                    <p className="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">
-                      Long time no see! Tomorrow office. will be free on sunday.
-                    </p>
-                    <p className="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end">
-                      00:06
-                    </p>
-                  </div>
-                  <Avatar alt="Nurul Hasan" src={ProfilePic} />
-                </div>
-
               </MDBCardBody>
          
             <MDBCardFooter className="text-muted d-flex justify-content-start align-items-center footerBox">
             <Avatar alt="Nurul Hasan" src={ProfilePic} />
               <input
                 type="text"
-                class="form-control form-control-lg"
+                className="form-control form-control-lg"
                 id="exampleFormControlInput1"
                 placeholder="Type message"
               ></input>
