@@ -38,7 +38,7 @@ const Message = (props) => {
                 }
 
 
-                <p className="small ms-3 mb-3 rounded-3 text-muted">
+                <p className={`small ms-3 mb-3 rounded-3 text-muted ${sender?"text-end":""}`}>
                     {gettime(time)}
                 </p>
 

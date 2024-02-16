@@ -16,7 +16,9 @@ export default function BioCard() {
     <Card
       sx={{
         width: 320,
-        maxWidth: '100%'
+        maxWidth: '100%',
+        borderRadius:0
+
       }}
     >
       <CardContent sx={{ alignItems: 'center', textAlign: 'center' }}>

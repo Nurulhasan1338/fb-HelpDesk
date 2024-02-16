@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./routes.css"
 import Integratedpage from './Integrate-page';
 import { Paper, Button} from '@mui/material';
+import Appinfo from '../../config';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -14,25 +15,25 @@ const PageIntegration = () => {
 
     const logout = ()=>{
        localStorage.setItem("auth-token","");
+       localStorage.setItem("access-token","");
        nevigate("/signin");
     }
 
-
-
     useEffect(()=>{
-        const token = localStorage.getItem("auth-token");
-        if(!token){
+        // const token = localStorage.getItem("auth-token");
+        const access_token =  localStorage.getItem("access-token");
+        const auth_token =  localStorage.getItem("auth-token");
+        if(!access_token && !auth_token){
         nevigate("/signin")  
-        }   
+        } 
 
-        
     },[])
 
 
 
     async function fetchPageInformation() {
         try {
-          const response = await fetch("http://graph.facebook.com/me/accounts?access_token=EAANKRnnVZAGUBOwZB3vfuyvgtThYURJhW7HvJB2JGVWSgzgDupwhiUAvCb8sLmWCWfp62rDCYsyDZC2xzXNk8lDNMHiSXpN6M5laa9f742ZBO0KDHGkua7WG257dS8SGpQ16QPU10ZCzZAsXStBywSjrZAysbd4d9MOF3azbLZAdQUpIhsMy5ovQOr7fpDc9ZCBnpx7GRXfI5QYwdxqZBSNz69SDhN9AZDZD",{
+          const response = await fetch(`http://graph.facebook.com/me/accounts?access_token=${Appinfo['access-token']}`,{
             method :"GET"
           });
           if (!response.ok) {

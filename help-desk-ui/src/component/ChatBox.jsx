@@ -18,7 +18,12 @@ import MessageBox from "./Message";
 export default function ChatBox() {
 
     const [msg,setMsg] = useState([]);
+    const [typeMsg,setType]  = useState("");
 
+    const handlemsg=(e)=>{
+      
+      setType(e.target.value);
+    }
     const messages = [
         {
           messageContent: ["Hello there!"],
@@ -45,12 +50,49 @@ export default function ChatBox() {
           time : "2024-03-03T15:36:00"
         }
       ];
-      
-      
+
+
+      function splitIntoChunks(str, chunkSize) {
+        const words = str.split(" ");
+        const chunks = [];
+        
+        let currentChunk = [];
+        for (const word of words) {
+            currentChunk.push(word);
+            if (currentChunk.length >= chunkSize) {
+                chunks.push(currentChunk.join(" "));
+                currentChunk = [];
+            }
+        }
+        
+        if (currentChunk.length > 0) {
+            chunks.push(currentChunk.join(" "));
+        }
+        
+        return chunks;
+    }
+    
 
       useEffect(()=>{
           setMsg(messages);
       },[])
+
+
+      const handleSubmit=async()=>{
+
+        let message_array = splitIntoChunks(typeMsg,7);
+        setType("");
+
+        const new_msg = {
+          messageContent : message_array,
+          profilePhoto:ProfilePic,
+          sender:true,
+          time:new Date()
+        }
+
+        const msgList = [...msg,new_msg]
+        setMsg(msgList);
+      }
       
      
       
@@ -58,9 +100,9 @@ export default function ChatBox() {
   return (
     <MDBContainer className="outerBox" style={{ backgroundColor: "#eee" }}>
       <MDBRow className="d-flex justify-content-center">
-        <MDBCol md="12" lg="12" xl="12">
-          <MDBCard id="chat2" style={{ borderRadius: "0px" }}>
-            <MDBCardHeader className="d-flex justify-content-between align-items-center">
+        <MDBCol md="12" lg="12" xl="12" className="p-0">
+          <MDBCard id="chat2"  className="addedToCard" style={{ borderRadius: "0px" }}>
+            <MDBCardHeader className="d-flex justify-content-between align-items-center chatHeader">
               <h5 className="mb-0">Nurul Hasan</h5>
             </MDBCardHeader>
          
@@ -73,21 +115,16 @@ export default function ChatBox() {
                     })
                 }
 
-                <div className="divider d-flex align-items-center mb-4">
-                  <p
-                    className="text-center mx-3 mb-0"
-                    style={{ color: "#a2aab7" }}
-                  >
-                    Today
-                  </p>
-                </div>
 
               </MDBCardBody>
          
             <MDBCardFooter className="text-muted d-flex justify-content-start align-items-center footerBox">
             <Avatar alt="Nurul Hasan" src={ProfilePic} />
+              
               <input
                 type="text"
+                value={typeMsg}
+                onChange={handlemsg}
                 className="form-control form-control-lg"
                 id="exampleFormControlInput1"
                 placeholder="Type message"
@@ -95,9 +132,9 @@ export default function ChatBox() {
               <a className="ms-1 text-muted" href="#!">
                 <MDBIcon fas icon="paperclip" />
               </a>
-              <a className="ms-3" href="#!">
+              <button className="ms-3 bg-transparent rm-bt" onClick={handleSubmit}>
                 <MDBIcon fas icon="paper-plane" />
-              </a>
+              </button>
             </MDBCardFooter>
           </MDBCard>
         </MDBCol>

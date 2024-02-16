@@ -11,7 +11,7 @@ const Client = () => {
 
             <Grid xs={11}>
             <div className='d-flex '>
-                <div className='me-2 p-1' id="setSize">
+                <div className='me-0 p-1' id="setSize">
                 <input className="form-check-input " type="checkbox" value="" id="flexCheckDefault"/>
                 </div>
                 <div className='text-start'> 
@@ -20,9 +20,9 @@ const Client = () => {
                 </div>
             </div>
             </Grid>
-            <Grid xs={1} sx={{ fontSize: "12px",fontWeight:"600" }} className="text-secondary">10m</Grid>
+            <Grid xs={1} sx={{ fontSize: "13px",fontWeight:"500" }} className="text-secondary">10m</Grid>
             <Grid xs={12}>
-            <div className='mt-3 text-start'>
+            <div className='mt-2 text-start'>
                         <p className='smallText'>Awesome Product?</p>    
                         <p className='fw-light client-type'>Hii do you have any T-shirt avai...</p>    
                     </div>

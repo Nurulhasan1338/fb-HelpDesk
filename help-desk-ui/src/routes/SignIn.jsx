@@ -5,8 +5,10 @@ import FormControl from '@mui/joy/FormControl';
 import Divider from '@mui/joy/Divider';
 import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
-import { useNavigate } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import CircularProgress from '@mui/joy/CircularProgress';
+import SigninWithFacebook from "../component/SigninWithFacebook";
+import { useNavigate } from 'react-router-dom';
 
 const Signin = () => {
     const [userEmail, setEmail] = useState("");
@@ -14,9 +16,7 @@ const Signin = () => {
     const [isLodding, setLodding] = useState(false);
 
     const navigate = useNavigate();
-    const GotoSignin = () => {
-        navigate("/")
-    }
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -36,11 +36,7 @@ const Signin = () => {
             );
             const token = await response.json();
             setLodding(false);
-            console.log(token);
-            localStorage.setItem("auth-token", token);
-            const tokenValue = localStorage.getItem("auth-token")
-            console.log(tokenValue);
-
+            localStorage.setItem("auth-token", token.authtoken);
             setEmail("");
             setPassword("");
 
@@ -51,9 +47,10 @@ const Signin = () => {
                 alert(token.error);
             }
         } catch (err) {
-            alert("failed to signup", err);
+            alert("failed to signin", err);
         }
     };
+
     const handleEmail = (e) => {
         e.preventDefault();
         setEmail(e.target.value);
@@ -95,11 +92,9 @@ const Signin = () => {
                     </Button>
                 </form>
                 <Divider orientation="horizontal">Or</Divider>
-                <Button variant="contained" color="primary" className="w-100">
-                    continue with Facebook
-                </Button>
+                <SigninWithFacebook/>
                 <div className="fontSize w-100 text-center">
-                    <p>new user? <a href="" onClick={GotoSignin}>Register</a></p>
+                    <p>new user? <Link to="/">Register</Link></p>
                 </div>
             </Paper>
         </div>

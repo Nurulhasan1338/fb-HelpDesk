@@ -6,8 +6,9 @@ import Divider from '@mui/joy/Divider';
 import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import CircularProgress from '@mui/joy/CircularProgress';
+import SigninWithFacebook from "../component/SigninWithFacebook";
 
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
 
@@ -16,11 +17,6 @@ const Signup = () => {
     const [userPassword,setPassword] = useState("");
     const [isLodding,setLodding] = useState(false);
 
-    const navigate = useNavigate();
-
-    const GotoLogin = ()=>{
-            navigate("/signin")
-    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -109,11 +105,9 @@ const Signup = () => {
                     </Button>
                 </form>
                 <Divider orientation="horizontal">Or</Divider>
-                <Button variant="contained" color="primary" className="w-100">
-                    Sign Up with Facebook
-                </Button>
+                <SigninWithFacebook></SigninWithFacebook>
                 <div className="fontSize w-100 text-center">
-                    <p>Already have an account? <a href='' onClick={GotoLogin}>Login</a></p>
+                    <p>Already have an account? <Link to="/signin">Login</Link></p>
                 </div>
             </Paper>
         </div>

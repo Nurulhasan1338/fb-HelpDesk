@@ -6,6 +6,17 @@
     transition: background-color 0.3s ease;
 }
 
+.facebook-Btn{
+    width: 100%;
+    background: #1976d2;
+    border: none;
+    padding: 9px 23px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 500;
+    font-family: sans-serif;
+
+}
 .outerBox{
  
     padding: 2px 3px;
@@ -13,21 +24,35 @@
 
 .footerBox{
     
-    padding: 6px;
-    border: 1.5px solid;
-    border-radius: 9px !important;
-    margin: 14px 6px;
+    padding: 6px !important;
+    border: 1.5px solid !important;
+    border-radius: 11px !important;
+    margin: 11px 25px;
+    background-color: #e3e5e8 !important;
 
 }
 
+.chatHeader{
+    height: 43px;
+    border-bottom: 1px solid #e0e0e0 !important;
+    background-color: #fbfcfe !important;
+}
+
+
+
 .card-body {
   
-    height: 75vh;
+    height: 77vh;
     overflow-y: scroll;
 }
 .rm-bt{
     text-decoration: none;
     border: none;
+}
+.boxClient{
+    background-color: #e3e5e8;
+    border: 1px solid gray;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .boxClient:focus{
     background-color: #e3e5e8;
@@ -70,7 +95,7 @@ p{
     font-size: 13px;
 }
 .footerBox input{
-    background-color: #e3e5e8;
+    background-color: #e3e5e8 !important;
 }
 .card-header{
     background-color: #efefef;
@@ -79,8 +104,9 @@ p{
     border-radius: 0px !important;
 }
 
-.card{
-    background: #e3e5e8;
+.addedToCard{
+    box-shadow: none !important;
+    background-color: #e3e5e8 !important;
 }
 
 
@@ -96,6 +122,7 @@ p{
 
 #chat2 .form-control {
     border-color: transparent;
+    
   }
   
   #chat2 .form-control:focus {
